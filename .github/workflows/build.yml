@@ -23,3 +23,4 @@ jobs:
           for i in $(seq 1 30); do curl -sf http://localhost:8080/ > pagina.html && break; sleep 2; done
           grep -q "Versão de demonstração" pagina.html
           curl -sf http://localhost:8080/vagas | grep -q "Desenvolvedor Java Júnior"
+          curl -sf http://localhost:8080/bootstrap/css/bootstrap.min.css | grep -q "Bootstrap"
