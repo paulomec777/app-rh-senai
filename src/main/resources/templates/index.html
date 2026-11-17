@@ -57,6 +57,11 @@
 	</header>
 
 	<div class="container">
+		<div class="alert alert-success mt-3" th:if="${@environment.acceptsProfiles('demo')}">
+			<strong>Versão de demonstração.</strong> Os dados são fictícios. Para cadastrar
+			ou editar, entre com usuário <code>demo</code> e senha <code>demo</code>.
+			Tudo volta ao original quando o servidor reinicia.
+		</div>
 		<br> <br>
 
 		<div class="row">

@@ -1,0 +1,25 @@
+name: Build
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '11'
+          cache: maven
+      - name: Compilar e empacotar
+        run: mvn -B -DskipTests package
+      - name: Subir a demo e testar a página inicial
+        run: |
+          SPRING_PROFILES_ACTIVE=demo java -jar target/*.jar &
+          for i in $(seq 1 30); do curl -sf http://localhost:8080/ > pagina.html && break; sleep 2; done
+          grep -q "Versão de demonstração" pagina.html
+          curl -sf http://localhost:8080/vagas | grep -q "Desenvolvedor Java Júnior"

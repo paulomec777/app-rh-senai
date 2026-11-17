@@ -65,6 +65,28 @@ Pré-requisitos: Java 11 e MySQL (ou MariaDB) rodando localmente.
 
 As tabelas são criadas automaticamente na primeira execução.
 
+## Modo de demonstração
+
+Para rodar sem instalar o MySQL, ative o perfil `demo`:
+
+```bash
+SPRING_PROFILES_ACTIVE=demo ./mvnw spring-boot:run
+```
+
+Nesse modo a aplicação usa um banco H2 em memória, já preenchido com vagas,
+candidatos, funcionários e dependentes fictícios (`demo-data.sql`). A página
+inicial mostra o login de visitante, `demo` / `demo`. Os dados voltam ao
+original sempre que o servidor reinicia.
+
+## Deploy
+
+O `Dockerfile` já sobe a aplicação no modo de demonstração, sem precisar de
+banco externo. Basta criar um serviço a partir deste repositório no Railway,
+no Render ou no Fly.io; a porta é lida da variável `PORT`.
+
+Cada envio para o GitHub é compilado e testado automaticamente pelo GitHub
+Actions (`.github/workflows/build.yml`).
+
 ## Autor
 
 Desenvolvido por **Paulo Henrique Tomaz Martins** no curso de Desenvolvedor
