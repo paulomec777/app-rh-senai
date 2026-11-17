@@ -4,6 +4,10 @@ Aplicação web de Recursos Humanos desenvolvida no curso de Desenvolvedor Java
 do Senai. Ela gerencia vagas e candidatos, funcionários e dependentes, com
 login e páginas protegidas.
 
+**Veja funcionando:** https://app-rh-senai-demo.onrender.com (usuário `demo`, senha `demo`).
+A demonstração usa dados fictícios e fica em hospedagem gratuita, então a
+primeira visita pode levar cerca de um minuto para abrir.
+
 ## Funcionalidades
 
 - **Vagas:** cadastrar, listar, editar e excluir vagas (nome, descrição, data
